@@ -1,0 +1,30 @@
+name: 'Aqua Vulnerability Scanner'
+description: 'Scans container images for vulnerabilities with Aqua'
+author: 'Steve G @ Aqua Security'
+inputs:
+  scan-user:  # id of input
+    description: 'scanner user within Aqua console'
+    required: true
+  scan-pw:  # id of input
+    description: 'scanner password within Aqua server'
+    required: true
+  aqua-host:  # URL of Aqua 
+    description: 'the URL of the Aqua server'
+    required: true
+  image-ref:
+    description: 'image reference'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - 'scan'
+    - '--dockerless'
+    - '--local'
+    - '--json'
+    - '--htmlfile aqua-results.html'
+    - '--jsonfile aqua-results.json'
+    - '-U ${{ inputs.scan-user }}'
+    - '-P ${{ inputs.scan-pw }}'
+    - '-H ${{ inputs.aqua-host }}'
+    - '${{ inputs.image-ref }}'
