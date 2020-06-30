@@ -27,6 +27,6 @@ runs:
     - '--jsonfile aqua-results.json'
     - '-U ${{ inputs.scan-user }}'
     - '-P ${{ inputs.scan-pw }}'
-    - '-H ${{ inputs.aqua-host }}
+    - '-H ${{ inputs.aqua-host }}'
     - '--local'
     - '${{ inputs.image-ref }}'
