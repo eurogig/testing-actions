@@ -10,7 +10,7 @@ inputs:
     required: true
   aqua-host:  # URL of Aqua 
     description: 'the URL of the Aqua server'
-    required: true  
+    required: true
   image-ref:
     description: 'image reference'
     required: true
