@@ -11,12 +11,15 @@ inputs:
   aqua-host:  # URL of Aqua 
     description: 'the URL of the Aqua server'
     required: true
+  aqua-version:  # Version of Aqua.  Used as the pull tag
+    description: 'Version of Aqua CSP (eg. 5.0)'
+    required: true   
   image-ref:
     description: 'image reference'
     required: true
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://docker.io/aquasec/scanner:${{ inputs.aqua-version }}'
   args:
     - 'scan'
     - '--dockerless'
