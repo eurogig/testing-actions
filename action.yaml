@@ -19,7 +19,7 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'docker://docker.io/aquasec/scanner:${{ inputs.aqua-version }}'
+  image: 'docker://docker.io/aquasec/scanner:5.0'
   args:
     - 'scan'
     - '--dockerless'
